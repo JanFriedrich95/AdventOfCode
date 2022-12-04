@@ -7,3 +7,10 @@ edition = "2021"
 
 [dependencies]
 
+[[bin]]
+name = "day_01"
+path = "src/Day_01/main.rs"
+
+[[bin]]
+name = "day_02"
+path = "src/Day_02/main.rs"

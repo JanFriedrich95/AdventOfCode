@@ -1,8 +1,13 @@
 use std::{fs::File, io::Read};
 
+fn main() {
+	day_one_part_one();
+	day_one_part_two();
+}
+
 pub fn day_one_part_one() {
 
-	let mut file = File::open("src/Day_01/values").expect("File not found");
+	let mut file = File::open("src/Day_01/input").expect("File not found");
 	let mut contents = String::new();
 	file.read_to_string(&mut contents).expect("Error reading file");
 
@@ -17,7 +22,7 @@ pub fn day_one_part_one() {
 
 	for val in split_vals.iter() {
 
-		if val > &0 {
+		if val > 0 {
 			sum += val;
 		} else {
 			if sum > highest {
@@ -61,4 +66,28 @@ pub fn day_one_part_two() {
 
 	println!("{:?}", highest_tree);
 
+}
+
+fn get_elf(value: &str) -> Vec<i32> {
+    value
+        .split("\n")
+        .map(|split| split.parse::<i32>().unwrap())
+        .collect()
+}
+
+fn part_one() {
+	let mut file = File::open("src/Day_01/values").expect("File not found");
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)
+        .expect("Error reading file");
+
+    let elves: Vec<Vec<i32>> = contents.split("\n\n").map(get_elf).collect();
+
+    let highest = elves
+        .iter()
+        .map(|elf| elf.iter().sum::<i32>())
+        .max()
+        .unwrap();
+
+    println!("{:?}", highest);
 }
