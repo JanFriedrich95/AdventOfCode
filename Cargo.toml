@@ -14,3 +14,7 @@ path = "src/Day_01/main.rs"
 [[bin]]
 name = "day_02"
 path = "src/Day_02/main.rs"
+
+[[bin]]
+name = "day_03"
+path = "src/Day_03/main.rs"
